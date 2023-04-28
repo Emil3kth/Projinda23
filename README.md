@@ -9,9 +9,9 @@ Spelare: Skapa en spelare, som spelar mot datorn
 
 Spelets mål: Definiera spelets mål. Döda en fiende.
 
-Game loop: spelaren måste hitta ett verktyg på spelplanen, med hjälp av verktyget kan spelaren döda fienden. Spelaren måste ”använda verktyget” i.e. inte bara ha det på sig genom att interagera med ett enkelt UI.
+Game loop: spelaren måste hitta ett verktyg på spelplanen, med hjälp av verktyget kan spelaren döda fienden. Spelaren måste ”använda verktyget” i.e. inte bara ha det på sig genom att interagera med ett enkelt UI. Attack används genom att spelaren interagerar med en hotbar.
 
-Drag: Låt spelaren göra drag genom att klicka på en tom ruta på spelplanen. När en spelare har valt en ruta ska spelplanen uppdateras. 
+Drag: Låt spelaren göra drag genom att använda asdw-tangenterna och röra sig till en ruta på spelplanen. När en spelare har valt en ruta ska spelplanen uppdateras. 
 
 Vinna eller förlora: Implementera logik för att kontrollera om en spelare har vunnit genom att kolla om spelaren har dödat en motståndare utan att själv dö. Om en spelare vinner, visa ett meddelande som gratulerar vinnaren och ger alternativet att spela igen.
 
