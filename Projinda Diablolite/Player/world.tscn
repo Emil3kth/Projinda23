@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://chpgn42e8fw6n"]
+[gd_scene load_steps=8 format=3 uid="uid://chpgn42e8fw6n"]
 
 [ext_resource type="PackedScene" uid="uid://bqlrltpfkgda2" path="res://Player/player.tscn" id="1_clvpu"]
 [ext_resource type="Texture2D" uid="uid://b88x6ooswv37c" path="res://art/decorative.png" id="2_eywdu"]
 [ext_resource type="Texture2D" uid="uid://ct5q3fvu7u5xd" path="res://art/mainlevbuild.png" id="2_wjqcc"]
-[ext_resource type="Script" path="res://camera rätt/follow camera.gd" id="4_cb5ql"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nqyg"]
 texture = ExtResource("2_wjqcc")
@@ -5722,7 +5721,6 @@ texture = ExtResource("2_eywdu")
 6:4/0/physics_layer_0/angular_velocity = 0.0
 6:4/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 6:4/0/physics_layer_1/angular_velocity = 0.0
-5:4/size_in_atlas = Vector2i(2, 3)
 5:4/0 = 0
 5:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:4/0/physics_layer_0/angular_velocity = 0.0
@@ -5739,9 +5737,6 @@ physics_layer_1/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8nqyg")
 sources/2 = SubResource("TileSetAtlasSource_r31uv")
 sources/3 = SubResource("TileSetAtlasSource_0wgml")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghqho"]
-size = Vector2(14.5, 4)
 
 [node name="World" type="Node2D"]
 
@@ -5767,18 +5762,6 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(262146, 2, 6, 524290, 2, 6, 0, 851970, 1, 327680, 655362, 8, 720896, 655362, 11, 786432, 655362, 8, 851968, 655362, 11, 917504, 655362, 8, 983040, 655362, 11, 1048576, 655362, 11, 1114112, 655362, 8, 1179648, 655362, 12, 1179649, 655362, 1, 1179650, 655362, 1, 1179651, 720898, 1, 1179652, 786434, 1, 1179653, 851970, 1, 1179654, 786434, 1, 1179655, 851970, 1, 1179656, 851970, 1, 1179657, 655362, 1, 1179658, 851970, 1, 1179659, 720898, 1, 1179660, 786434, 1, 1179661, 720898, 1, 1179662, 851970, 1, 1179663, 655362, 1, 1179664, 851970, 1, 1179665, 786434, 1, 1179666, 655362, 1, 1179667, 720898, 1, 1179668, 655362, 1, 1179669, 655362, 1, 1179670, 851970, 1, 1179671, 786434, 1, 1179672, 786434, 1, 1179673, 655362, 1, 1179674, 720898, 1, 1179675, 851970, 1, 1179676, 655362, 1, 1179677, 786434, 1, 1179678, 786434, 1, 262175, 655362, 12, 327711, 655362, 9, 393247, 655362, 12, 458783, 655362, 12, 524319, 655362, 8, 589855, 655362, 9, 655391, 655362, 9, 720927, 655362, 11, 786463, 655362, 11, 851999, 655362, 8, 917535, 655362, 9, 983071, 655362, 8, 1179679, 851970, 1, 31, 786434, 1, 65567, 655362, 11, 131103, 655362, 12, 196639, 655362, 9, 1, 720898, 1, 2, 655362, 1, 3, 786434, 1, 4, 655362, 1, 5, 720898, 1, 6, 786434, 1, 7, 655362, 1, 8, 655362, 1, 9, 720898, 1, 10, 655362, 1, 11, 720898, 1, 12, 786434, 1, 13, 655362, 1, 14, 655362, 1, 15, 786434, 1, 16, 720898, 1, 17, 655362, 1, 18, 655362, 1, 19, 655362, 1, 20, 851970, 1, 21, 851970, 1, 22, 655362, 1, 23, 720898, 1, 24, 786434, 1, 25, 851970, 1, 26, 655362, 1, 27, 786434, 1, 28, 786434, 1, 29, 655362, 1, 30, 655362, 1, 65536, 655362, 11, 131072, 655362, 8, 196608, 655362, 9, 262144, 655362, 9, 393216, 655362, 9, 458752, 655362, 8, 524288, 655362, 8, 589824, 655362, 8, 655360, 655362, 12)
 
 [node name="Player" parent="." instance=ExtResource("1_clvpu")]
-position = Vector2(48, 45)
-up_direction = Vector2(0.707107, 0.707107)
+position = Vector2(88, 66)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_ghqho")
-
-[node name="follow camera" type="Camera2D" parent="Player" node_paths=PackedStringArray("tileMap")]
-limit_left = 0
-limit_top = 0
-limit_right = 500
-limit_bottom = 380
-position_smoothing_enabled = true
-script = ExtResource("4_cb5ql")
-tileMap = NodePath("../../TileMap")
+[node name="Camera2D" type="Camera2D" parent="Player"]
