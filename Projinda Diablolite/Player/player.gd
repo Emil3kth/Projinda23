@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 2
+@export var speed = 5
 var moving = false
 var tile_size = 16
 var inputs = {
@@ -18,7 +18,7 @@ var last_dir = Vector2.DOWN
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
-	animation_player.play("idle")
+	animation_player.play("idle_down")
 
 func _physics_process(_delta):
 	if !moving:
