@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 2
+@export var speed = 5
 var moving = false
 var tile_size = 16
 var inputs = {
@@ -10,27 +10,55 @@ var inputs = {
 	"ui_down": Vector2.DOWN
 }
 
+var last_dir = Vector2.DOWN
+
 @onready var ray = $RayCast2D
+@onready var animation_player = $AnimationPlayer
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size / 2
-	
-func _unhandled_input(event):
-	if moving:
-		return
-	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
-			move(dir)
-			
+	animation_player.play("idle_down")
+
+func _physics_process(_delta):
+	if !moving:
+		for dir in inputs.keys():
+			if Input.is_action_pressed(dir):
+				move(dir)
+				break
+	if !moving:
+		var anim_name = get_idle_animation_name()
+		animation_player.play(anim_name)
+
 func move(dir):
 	ray.target_position = inputs[dir] * tile_size
 	ray.force_raycast_update()
 	if !ray.is_colliding():
-		#position += inputs[dir] * tile_size
 		var tween = get_tree().create_tween()
 		tween.tween_property(self, "position", position + inputs[dir] * tile_size, 1.0/speed).set_trans(Tween.TRANS_SINE)
 		moving = true
-		$AnimationPlayer.play(dir)
+		last_dir = inputs[dir]
+		var anim_name = get_animation_name("walk", last_dir)
+		animation_player.play(anim_name)
 		await tween.finished
 		moving = false
+
+func get_animation_name(prefix, dir):
+	var anim_name = prefix + "_"
+	if dir.x > 0:
+		anim_name += "right"
+	elif dir.x < 0:
+		anim_name += "left"
+	elif dir.y < 0:
+		anim_name += "up"
+	elif dir.y > 0:
+		anim_name += "down"
+	else:
+		anim_name = prefix
+	return anim_name
+
+func get_idle_animation_name():
+	var anim_name = "idle"
+	if last_dir != Vector2.ZERO:
+		anim_name = get_animation_name("idle", last_dir)
+	return anim_name
