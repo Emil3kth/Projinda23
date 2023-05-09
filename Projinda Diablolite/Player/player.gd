@@ -62,3 +62,9 @@ func get_idle_animation_name():
 	if last_dir != Vector2.ZERO:
 		anim_name = get_animation_name("idle", last_dir)
 	return anim_name
+
+
+func _on_hurt_box_area_entered(area):
+	if area.name == "hitBox":
+		print_debug(area.get_parent().name)
+	
