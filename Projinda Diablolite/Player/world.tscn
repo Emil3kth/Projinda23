@@ -1,5 +1,5 @@
-[gd_scene load_steps=24 format=3 uid="uid://chpgn42e8fw6n"]
 
+[gd_scene load_steps=24 format=3 uid="uid://chpgn42e8fw6n"]
 [ext_resource type="PackedScene" uid="uid://bqlrltpfkgda2" path="res://Player/player.tscn" id="1_clvpu"]
 [ext_resource type="Texture2D" uid="uid://b88x6ooswv37c" path="res://art/decorative.png" id="2_eywdu"]
 [ext_resource type="Texture2D" uid="uid://ct5q3fvu7u5xd" path="res://art/mainlevbuild.png" id="2_wjqcc"]
@@ -5164,9 +5164,12 @@ texture = ExtResource("2_eywdu")
 3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_1/angular_velocity = 0.0
+4:1/size_in_atlas = Vector2i(1, 3)
 4:1/0 = 0
+4:1/0/y_sort_origin = 16
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6, 20, -4, 23.5, 2.5, 23.5, 5, 20)
 4:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_1/angular_velocity = 0.0
 5:1/size_in_atlas = Vector2i(1, 2)
@@ -5240,11 +5243,6 @@ texture = ExtResource("2_eywdu")
 3:2/0/physics_layer_0/angular_velocity = 0.0
 3:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_1/angular_velocity = 0.0
-4:2/0 = 0
-4:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:2/0/physics_layer_0/angular_velocity = 0.0
-4:2/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-4:2/0/physics_layer_1/angular_velocity = 0.0
 6:2/0 = 0
 6:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:2/0/physics_layer_0/angular_velocity = 0.0
@@ -5285,11 +5283,6 @@ texture = ExtResource("2_eywdu")
 3:3/0/physics_layer_0/angular_velocity = 0.0
 3:3/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 3:3/0/physics_layer_1/angular_velocity = 0.0
-4:3/0 = 0
-4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:3/0/physics_layer_0/angular_velocity = 0.0
-4:3/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-4:3/0/physics_layer_1/angular_velocity = 0.0
 0:4/0 = 0
 0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:4/0/physics_layer_0/angular_velocity = 0.0
@@ -5400,13 +5393,6 @@ texture = ExtResource("2_eywdu")
 13:5/0/physics_layer_0/angular_velocity = 0.0
 13:5/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 13:5/0/physics_layer_1/angular_velocity = 0.0
-0:6/size_in_atlas = Vector2i(3, 2)
-0:6/0 = 0
-0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:6/0/physics_layer_0/angular_velocity = 0.0
-0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.5, 5.5, -19, 15.5, 17.5, 16, 16, 7, -17, 6)
-0:6/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-0:6/0/physics_layer_1/angular_velocity = 0.0
 3:6/0 = 0
 3:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:6/0/physics_layer_0/angular_velocity = 0.0
@@ -5742,6 +5728,13 @@ texture = ExtResource("2_eywdu")
 5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.5, 25, 9.5, 24.5, 8, -8, -8, -8)
 5:4/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 5:4/0/physics_layer_1/angular_velocity = 0.0
+0:6/size_in_atlas = Vector2i(3, 2)
+0:6/0 = 0
+0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:6/0/physics_layer_0/angular_velocity = 0.0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-18.5, 5.5, -19, 15.5, 17.5, 16, 17.5, 2, -16.5, 2)
+0:6/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:6/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wgml"]
 texture = ExtResource("2_eywdu")
@@ -5854,3 +5847,4 @@ collision_mask = 3
 
 [node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("18_ji7o2")]
 offset_right = 52.0
+

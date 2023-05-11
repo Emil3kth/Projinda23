@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://bqlrltpfkgda2"]
 
 [ext_resource type="Texture2D" uid="uid://bagy0jy7u1vo4" path="res://art/player.png" id="1_4jgcd"]
-[ext_resource type="Script" path="res://Player/player.gd" id="1_7g1la"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_ovcl7"]
 
 [sub_resource type="Animation" id="Animation_kn2iu"]
 length = 0.001
@@ -182,11 +182,16 @@ size = Vector2(14, 4)
 radius = 8.0
 height = 16.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 texture_filter = 1
-script = ExtResource("1_7g1la")
+script = ExtResource("1_ovcl7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(0, -8)
 texture = ExtResource("1_4jgcd")
 hframes = 4

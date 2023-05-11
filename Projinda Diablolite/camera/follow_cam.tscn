@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3k5iy0kbnua"]
+
+[ext_resource type="Script" path="res://camera/Follow Cam.gd" id="1_a1t6c"]
+[ext_resource type="PackedScene" uid="uid://dfwb4bkfgqgmc" path="res://hotbar/hotbar.tscn" id="2_jtvkh"]
+
+[node name="Follow Cam" type="Camera2D" node_paths=PackedStringArray("tilemap")]
+limit_left = 0
+limit_top = 0
+script = ExtResource("1_a1t6c")
+tilemap = NodePath("../../TileMap")
+
+[node name="Hotbar" parent="." instance=ExtResource("2_jtvkh")]
+position = Vector2(-88, -66)

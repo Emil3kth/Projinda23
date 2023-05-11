@@ -1,15 +1,17 @@
 extends Area2D
 
-@export var Name = "item"
+#func _on_body_entered(body):
+#	if body.name == "Player":
+#		queue_free()
+
+@export var icon_path: String
+@export var use_script: Script
 
 func _ready():
-	pass
+	$CollisionShape2D.set_deferred("disabled", false)
 
-func _on_Item_body_entered(body):
-	if body.is_in_group("player"):
-		pick_up()
+func _on_body_entered(body):
+	if body.name == "Player":
+		var player = body.get_node("/root/World/Player")
+		get_node("../UserInterface/Hotbar/TextureRect/Sword").show()
 		queue_free()
-
-func pick_up():
-	# TODO: Handle what happens when the player picks up the item
-	pass
