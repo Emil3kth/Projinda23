@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var maxHealth = 3
+@onready var currentHealth: int = maxHealth
+
 @export var speed = 5
 var moving = false
 var tile_size = 16
@@ -69,3 +72,16 @@ func get_idle_animation_name():
 	if last_dir != Vector2.ZERO:
 		anim_name = get_animation_name("idle", last_dir)
 	return anim_name
+
+
+func _on_hurt_box_area_entered(area):
+	if area.name == "hitBox":
+		currentHealth -= 1
+		if currentHealth < 0:
+			currentHealth = maxHealth
+		print_debug(currentHealth)
+			
+			
+			
+		
+	

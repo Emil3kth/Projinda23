@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqlrltpfkgda2"]
+[gd_scene load_steps=15 format=3 uid="uid://bqlrltpfkgda2"]
 
 [ext_resource type="Texture2D" uid="uid://bagy0jy7u1vo4" path="res://art/player.png" id="1_4jgcd"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_ovcl7"]
@@ -175,7 +175,12 @@ _data = {
 "walk_up": SubResource("Animation_syyg0")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3023q"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cxfy0"]
+size = Vector2(14, 4)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pchlo"]
+radius = 8.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
@@ -200,6 +205,13 @@ libraries = {
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_3023q")
+position = Vector2(2.08165e-12, -1.9)
+shape = SubResource("RectangleShape2D_cxfy0")
+
+[node name="hurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_pchlo")
+
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]
