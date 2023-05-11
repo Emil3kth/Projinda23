@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@export var maxHealth = 3
-@onready var currentHealth: int = maxHealth
 
 @export var speed = 5
 var moving = false
@@ -17,11 +15,9 @@ var last_dir = Vector2.DOWN
 
 @onready var ray = $RayCast2D
 @onready var animation_player = $AnimationPlayer
-var currentHealth: int = 10
-var hotbar
-const HOTBAR_SIZE = 3
-var hotbar_items = []
-var hotbar_selection = 0
+@onready var game_over = get_node("/root/World/Player/UserInterface/GameOver")
+@onready var can_move = true
+
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
@@ -32,8 +28,9 @@ func _physics_process(_delta):
 	if !moving:
 		for dir in inputs.keys():
 			if Input.is_action_pressed(dir):
-				move(dir)
-				break
+				if can_move:
+					move(dir)
+					break
 	if !moving:
 		var anim_name = get_idle_animation_name()
 		animation_player.play(anim_name)
@@ -76,11 +73,12 @@ func get_idle_animation_name():
 
 func _on_hurt_box_area_entered(area):
 	if area.name == "hitBox":
-		currentHealth -= 1
-		if currentHealth < 0:
-			currentHealth = maxHealth
-		print_debug(currentHealth)
-			
+		Health.health -= 0.5
+		if Health.health <= 0:
+			can_move = false
+			$Sprite2D.hide()
+			$dead.show()
+			get_node("/root/World/Player/UserInterface/GameOver").show()
 			
 			
 		

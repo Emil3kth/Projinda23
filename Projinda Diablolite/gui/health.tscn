@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3c7jlii4i78u"]
+
+[ext_resource type="Script" path="res://gui/health.gd" id="1_wnfw3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvkra"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -177.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wnfw3")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0.0392157, 0.0352941, 1)
+layout_mode = 0
+offset_right = 63.0
+offset_bottom = 15.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_qvkra")
+value = 100.0
+show_percentage = false
