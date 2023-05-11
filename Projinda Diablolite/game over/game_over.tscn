@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgby1raxpsufx"]
+
+[ext_resource type="Script" path="res://game over/game_over.gd" id="1_as5gt"]
+[ext_resource type="Texture2D" uid="uid://bj6isjeklo6d0" path="res://game over/GameOver.png" id="2_58rll"]
+[ext_resource type="Texture2D" uid="uid://b7h8dyxola1g" path="res://game over/Play.png" id="3_s4ddy"]
+[ext_resource type="Texture2D" uid="uid://1jvt5wg388qw" path="res://game over/Quit.png" id="4_ja2bn"]
+
+[node name="GameOver" type="Node2D"]
+visible = false
+script = ExtResource("1_as5gt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9.53674e-07, 4.76837e-07)
+scale = Vector2(0.901434, 0.896825)
+texture = ExtResource("2_58rll")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -64.0
+offset_top = 33.0
+offset_right = 64.0
+offset_bottom = 82.0
+
+[node name="RestartButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 63.0
+offset_bottom = 48.0
+icon = ExtResource("3_s4ddy")
+
+[node name="QuitButton" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 64.0
+offset_right = 126.0
+offset_bottom = 48.0
+icon = ExtResource("4_ja2bn")
+
+[connection signal="pressed" from="Panel/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Panel/QuitButton" to="." method="_on_quit_button_pressed"]

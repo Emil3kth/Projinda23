@@ -13,5 +13,5 @@ func _ready():
 func _on_body_entered(body):
 	if body.name == "Player":
 		var player = body.get_node("/root/World/Player")
-		get_node("../UserInterface/Hotbar/TextureRect/Sword").show()
+		get_node("/root/World/Player/UserInterface/Hotbar/TextureRect/Sword").show()
 		queue_free()
