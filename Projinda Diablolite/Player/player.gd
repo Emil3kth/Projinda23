@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 @export var speed = 5
 var moving = false
@@ -14,6 +14,11 @@ var last_dir = Vector2.DOWN
 
 @onready var ray = $RayCast2D
 @onready var animation_player = $AnimationPlayer
+var currentHealth: int = 10
+var hotbar
+const HOTBAR_SIZE = 3
+var hotbar_items = []
+var hotbar_selection = 0
 
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
@@ -43,6 +48,7 @@ func move(dir):
 		await tween.finished
 		moving = false
 
+
 func get_animation_name(prefix, dir):
 	var anim_name = prefix + "_"
 	if dir.x > 0:
@@ -56,6 +62,7 @@ func get_animation_name(prefix, dir):
 	else:
 		anim_name = prefix
 	return anim_name
+
 
 func get_idle_animation_name():
 	var anim_name = "idle"
